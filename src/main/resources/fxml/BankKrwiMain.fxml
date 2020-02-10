@@ -1,0 +1,136 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import com.jfoenix.controls.JFXComboBox?>
+<?import de.jensd.fx.glyphs.fontawesome.FontAwesomeIconView?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.cell.PropertyValueFactory?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane prefHeight="800.0" prefWidth="1200.0" stylesheets="@bank-login-theme.css" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="edu.ib.RegBankTypyKrwiController">
+   <children>
+      <VBox alignment="TOP_CENTER" layoutX="10.0" layoutY="10.0" prefHeight="100.0" prefWidth="1182.0" AnchorPane.leftAnchor="5.0" AnchorPane.rightAnchor="5.0" AnchorPane.topAnchor="25.0">
+         <children>
+            <Label alignment="TOP_CENTER" contentDisplay="TOP" text="Bank Krwi" textAlignment="CENTER" textFill="RED">
+               <font>
+                  <Font name="System Bold Italic" size="36.0" />
+               </font>
+            </Label>
+            <Label text="Regionalny bank krwi" textFill="WHITE">
+               <font>
+                  <Font name="System Bold Italic" size="18.0" />
+               </font>
+            </Label>
+         </children>
+      </VBox>
+      <HBox alignment="CENTER" layoutX="5.0" layoutY="142.0" prefHeight="100.0" prefWidth="200.0" spacing="250.0" AnchorPane.leftAnchor="5.0" AnchorPane.rightAnchor="5.0">
+         <children>
+            <HBox alignment="CENTER" prefHeight="100.0" prefWidth="540.0" spacing="250.0">
+               <children>
+                  <JFXButton fx:id="goToGrupaKrwiButton" contentDisplay="TOP" disable="true" styleClass="login-button" text="Grupa krwi">
+                     <font>
+                        <Font size="18.0" />
+                     </font>
+                     <graphic>
+                        <FontAwesomeIconView glyphName="PLUS" size="18" />
+                     </graphic>
+                  </JFXButton>
+                  <JFXButton fx:id="goToPlacowkiButton" contentDisplay="TOP" onAction="#goToPlacowkiButtonClicked" styleClass="login-button" text="Placówki">
+                     <font>
+                        <Font size="18.0" />
+                     </font>
+                     <graphic>
+                        <FontAwesomeIconView glyphName="HOME" size="18" />
+                     </graphic>
+                  </JFXButton>
+               </children>
+            </HBox>
+            <JFXButton fx:id="goToTransfuzjeButton" contentDisplay="TOP" onAction="#goToTransfuzjeButtonClicked" styleClass="login-button" text="Transfuzja krwi">
+               <font>
+                  <Font size="18.0" />
+               </font>
+               <graphic>
+                  <FontAwesomeIconView glyphName="AMBULANCE" size="18" />
+               </graphic>
+            </JFXButton>
+         </children>
+      </HBox>
+      <Label layoutX="255.0" layoutY="129.0" styleClass="text-field" text="Podgląd zestawienia jednostek krwi dla:" textAlignment="CENTER" />
+      <HBox alignment="CENTER" layoutX="6.0" layoutY="237.0" prefHeight="450.0" prefWidth="1190.0" spacing="200.0" AnchorPane.bottomAnchor="5.0" AnchorPane.leftAnchor="5.0" AnchorPane.rightAnchor="5.0">
+         <children>
+            <TableView fx:id="bloodTypeTableView" prefHeight="482.0" prefWidth="450.0">
+              <columns>
+                <TableColumn fx:id="IDbloodColumnTable1" prefWidth="90.0" text="ID jednostki">
+                   <cellValueFactory>
+                      <PropertyValueFactory property="bloodID" />
+                   </cellValueFactory>
+                </TableColumn>
+                <TableColumn fx:id="dayOfDonationColumnTable1" prefWidth="120.0" text="Data pobrania">
+                   <cellValueFactory>
+                      <PropertyValueFactory property="dateOfDonation" />
+                   </cellValueFactory>
+                </TableColumn>
+                  <TableColumn fx:id="freshnessColumnTable1" prefWidth="90.0" text="Świeżość">
+                     <cellValueFactory>
+                        <PropertyValueFactory property="freshness" />
+                     </cellValueFactory>
+                  </TableColumn>
+                  <TableColumn fx:id="groupColumnTable1" prefWidth="70.0" text="Grupa">
+                     <cellValueFactory>
+                        <PropertyValueFactory property="bloodGroup" />
+                     </cellValueFactory>
+                  </TableColumn>
+                  <TableColumn fx:id="rHColumnTable1" text="Czynnik Rh">
+                     <cellValueFactory>
+                        <PropertyValueFactory property="Rh" />
+                     </cellValueFactory>
+                  </TableColumn>
+              </columns>
+            </TableView>
+            <TableView fx:id="archiveTableView" prefHeight="482.0" prefWidth="450.0">
+              <columns>
+                <TableColumn fx:id="archiveDateColumnTable2" prefWidth="150.0" text="Data zarchiwizowania">
+                   <cellValueFactory>
+                      <PropertyValueFactory property="archiveDate" />
+                   </cellValueFactory>
+                </TableColumn>
+                <TableColumn fx:id="peselColumnTable2" minWidth="6.0" prefWidth="150.0" text="PESEL dawcy">
+                   <cellValueFactory>
+                      <PropertyValueFactory property="pesel2" />
+                   </cellValueFactory>
+                </TableColumn>
+                  <TableColumn fx:id="bloodIDColumnTable2" prefWidth="150.0" text="ID jednostki krwi">
+                     <cellValueFactory>
+                        <PropertyValueFactory property="bloodID2" />
+                     </cellValueFactory>
+                  </TableColumn>
+              </columns>
+            </TableView>
+         </children>
+      </HBox>
+      <JFXComboBox fx:id="bloodGroupComboBox" labelFloat="true" layoutX="51.0" layoutY="276.0" prefHeight="39.0" prefWidth="144.0" promptText="Grupa krwi" styleClass="text-field" visibleRowCount="4" />
+      <JFXComboBox fx:id="rhComboBox" labelFloat="true" layoutX="219.0" layoutY="276.0" prefHeight="39.0" prefWidth="144.0" promptText="Czynnik Rh" styleClass="text-field" visibleRowCount="2" />
+      <JFXButton fx:id="findBloodTypeButton" contentDisplay="TOP" layoutX="413.0" layoutY="264.0" onAction="#findBloodTypeButtonClicked" styleClass="login-button" text="Znajdź">
+         <font>
+            <Font size="18.0" />
+         </font>
+         <graphic>
+            <FontAwesomeIconView glyphName="SEARCH" size="18" />
+         </graphic>
+      </JFXButton>
+      <JFXButton fx:id="showArchiveButton" contentDisplay="TOP" layoutX="848.0" layoutY="264.0" onAction="#showArchiveButtonClicked" styleClass="login-button" text="Pokaż archiwum">
+         <font>
+            <Font size="18.0" />
+         </font>
+         <graphic>
+            <FontAwesomeIconView glyphName="BOOK" size="18" />
+         </graphic>
+      </JFXButton>
+      <FontAwesomeIconView fx:id="closeSign" glyphName="CLOSE" layoutX="1165.0" layoutY="29.0" onMouseClicked="#closeSignClicked" size="25" />
+   </children>
+</AnchorPane>

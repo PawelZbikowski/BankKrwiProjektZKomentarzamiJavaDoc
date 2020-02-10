@@ -1,0 +1,118 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import com.jfoenix.controls.JFXComboBox?>
+<?import de.jensd.fx.glyphs.fontawesome.FontAwesomeIconView?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.cell.PropertyValueFactory?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane prefHeight="800.0" prefWidth="1200.0" stylesheets="@bank-login-theme.css" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="edu.ib.RegBankTransfuzjeController">
+   <children>
+      <VBox alignment="TOP_CENTER" layoutX="10.0" layoutY="10.0" prefHeight="100.0" prefWidth="1182.0" AnchorPane.leftAnchor="5.0" AnchorPane.rightAnchor="5.0" AnchorPane.topAnchor="25.0">
+         <children>
+            <Label alignment="TOP_CENTER" contentDisplay="TOP" text="Bank Krwi" textAlignment="CENTER" textFill="RED">
+               <font>
+                  <Font name="System Bold Italic" size="36.0" />
+               </font>
+            </Label>
+            <Label text="Regionalny bank krwi" textFill="WHITE">
+               <font>
+                  <Font name="System Bold Italic" size="18.0" />
+               </font>
+            </Label>
+         </children>
+      </VBox>
+      <HBox alignment="CENTER" layoutX="5.0" layoutY="142.0" prefHeight="100.0" prefWidth="200.0" spacing="250.0" AnchorPane.leftAnchor="5.0" AnchorPane.rightAnchor="5.0">
+         <children>
+            <HBox alignment="CENTER" prefHeight="100.0" prefWidth="540.0" spacing="250.0">
+               <children>
+                  <JFXButton fx:id="goToGrupaKrwiButton" contentDisplay="TOP" onAction="#goToGrupaKrwiButtonClicked" styleClass="login-button" text="Grupa krwi">
+                     <font>
+                        <Font size="18.0" />
+                     </font>
+                     <graphic>
+                        <FontAwesomeIconView glyphName="PLUS" size="18" />
+                     </graphic>
+                  </JFXButton>
+                  <JFXButton fx:id="goToPlacowkiButton" contentDisplay="TOP" onAction="#goToPlacowkiButtonClicked" styleClass="login-button" text="Placówki">
+                     <font>
+                        <Font size="18.0" />
+                     </font>
+                     <graphic>
+                        <FontAwesomeIconView glyphName="HOME" size="18" />
+                     </graphic>
+                  </JFXButton>
+               </children>
+            </HBox>
+            <JFXButton fx:id="goToTransfuzjeButton" contentDisplay="TOP" disable="true" styleClass="login-button" text="Transfuzja krwi">
+               <font>
+                  <Font size="18.0" />
+               </font>
+               <graphic>
+                  <FontAwesomeIconView glyphName="AMBULANCE" size="18" />
+               </graphic>
+            </JFXButton>
+         </children>
+      </HBox>
+      <Label layoutX="255.0" layoutY="129.0" styleClass="text-field" text="Podgląd zestawienia jednostek krwi dla:" textAlignment="CENTER" />
+      <HBox alignment="CENTER" layoutX="5.0" layoutY="242.0" prefHeight="113.0" prefWidth="1190.0" spacing="200.0" AnchorPane.bottomAnchor="445.0" AnchorPane.leftAnchor="5.0" AnchorPane.rightAnchor="5.0">
+         <children>
+            <JFXComboBox fx:id="centerComboBox" labelFloat="true" prefHeight="39.0" prefWidth="255.0" promptText="Placówki" styleClass="text-field" visibleRowCount="5" />
+            <JFXComboBox fx:id="bloodTypeComboBox" labelFloat="true" prefHeight="39.0" prefWidth="255.0" promptText="Grupa krwi" styleClass="text-field" visibleRowCount="4" />
+            <JFXButton fx:id="callTransfusion" contentDisplay="TOP" onAction="#callTransfusionClicked" styleClass="login-button" text="Dokonaj transfuzji">
+               <font>
+                  <Font size="18.0" />
+               </font>
+               <graphic>
+                  <FontAwesomeIconView glyphName="AMBULANCE" size="18" />
+               </graphic>
+            </JFXButton>
+         </children>
+      </HBox>
+      <FontAwesomeIconView fx:id="closeSign" glyphName="CLOSE" layoutX="1165.0" layoutY="29.0" onMouseClicked="#closeSignClicked" size="25" />
+      <HBox alignment="CENTER" layoutX="5.0" layoutY="423.0" prefHeight="372.0" prefWidth="1190.0" spacing="200.0">
+         <children>
+            <TableView fx:id="centerTableView" prefHeight="416.0" prefWidth="1000.0">
+               <columns>
+                  <TableColumn fx:id="bloodIDColumn" prefWidth="200.0" text="ID jednostki">
+                     <cellValueFactory>
+                        <PropertyValueFactory property="bloodID" />
+                     </cellValueFactory>
+                  </TableColumn>
+                  <TableColumn fx:id="amountOfBloodUnitsColumn" prefWidth="200.0" text="Ilość jednostek">
+                     <cellValueFactory>
+                        <PropertyValueFactory property="amountOfBloodUnits" />
+                     </cellValueFactory>
+                  </TableColumn>
+                  <TableColumn fx:id="bloodTypeColumn" prefWidth="200.0" text="Grupa krwi">
+                     <cellValueFactory>
+                        <PropertyValueFactory property="bloodType" />
+                     </cellValueFactory>
+                  </TableColumn>
+                  <TableColumn fx:id="centerNameColumn" prefWidth="200.0" text="Nazwa regionalnego banku">
+                     <cellValueFactory>
+                        <PropertyValueFactory property="centerName" />
+                     </cellValueFactory>
+                  </TableColumn>
+                  <TableColumn fx:id="howManyBloodUnitsColumn" prefWidth="200.0" text="Informacja o zapasach">
+                     <cellValueFactory>
+                        <PropertyValueFactory property="howManyBloodUnits" />
+                     </cellValueFactory>
+                  </TableColumn>
+               </columns>
+            </TableView>
+         </children>
+      </HBox>
+      <Label fx:id="gitLabel" layoutX="520.0" layoutY="387.0" text="Dokonano transfuzji" textFill="#00d015" visible="false">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Label>
+   </children>
+</AnchorPane>

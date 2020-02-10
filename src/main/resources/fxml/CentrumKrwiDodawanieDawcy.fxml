@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import com.jfoenix.controls.JFXComboBox?>
+<?import com.jfoenix.controls.JFXTextField?>
+<?import de.jensd.fx.glyphs.fontawesome.FontAwesomeIconView?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.DatePicker?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane prefHeight="800.0" prefWidth="800.0" stylesheets="@centrum-login-theme.css" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="edu.ib.CentrumKrwiDodawanieDawcyController">
+   <children>
+      <FontAwesomeIconView fx:id="closeSign" glyphName="CLOSE" layoutX="766.0" layoutY="35.0" onMouseClicked="#closeSignClicked" size="25" />
+      <Label alignment="CENTER" layoutX="308.0" layoutY="22.0" prefHeight="53.0" prefWidth="184.0" text="Bank Krwi" textFill="RED" AnchorPane.topAnchor="25.0">
+         <font>
+            <Font name="System Bold Italic" size="36.0" />
+         </font>
+      </Label>
+      <Label layoutX="315.0" layoutY="75.0" text="Dodawanie dawców" AnchorPane.topAnchor="75.0">
+         <font>
+            <Font name="System Bold Italic" size="18.0" />
+         </font>
+      </Label>
+      <VBox alignment="CENTER" layoutX="46.0" layoutY="131.0" prefHeight="617.0" prefWidth="269.0" spacing="40.0">
+         <children>
+            <JFXTextField fx:id="peselTextField" labelFloat="true" onKeyTyped="#peselKeyTyped" promptText="1. PESEL">
+               <padding>
+                  <Insets bottom="10.0" top="10.0" />
+               </padding>
+            </JFXTextField>
+            <JFXTextField fx:id="nameTextField" labelFloat="true" promptText="2. Imię">
+               <padding>
+                  <Insets bottom="10.0" top="10.0" />
+               </padding>
+            </JFXTextField>
+            <JFXTextField fx:id="surnameTextField" labelFloat="true" promptText="3. Nazwisko">
+               <padding>
+                  <Insets bottom="10.0" top="10.0" />
+               </padding>
+            </JFXTextField>
+            <JFXComboBox fx:id="sexComboBox" labelFloat="true" prefHeight="39.0" prefWidth="271.0" promptText="4. Płeć" styleClass="text-field" visibleRowCount="2" />
+            <JFXTextField fx:id="cityTextField" labelFloat="true" promptText="5. Miasto urodzenia" />
+            <JFXTextField fx:id="adressTextField" labelFloat="true" promptText="6. Adres zamieszkania" />
+         </children>
+      </VBox>
+      <VBox alignment="CENTER" layoutX="485.0" layoutY="131.0" prefHeight="617.0" prefWidth="269.0" spacing="40.0">
+         <children>
+            <JFXTextField fx:id="weightTextField" labelFloat="true" onKeyTyped="#weightKeyTyped" promptText="7. Waga" />
+            <DatePicker fx:id="lastDonationDatePicker" prefHeight="39.0" prefWidth="271.0" promptText="8. Ostatnie oddanie" />
+            <DatePicker fx:id="dayOfDonationDatePicker" prefHeight="39.0" prefWidth="270.0" promptText="9. Data pobrania" />
+            <JFXComboBox fx:id="centerNameComboBox" labelFloat="true" prefHeight="25.0" prefWidth="288.0" promptText="10. Placówka" styleClass="text-field" visibleRowCount="21" />
+            <JFXComboBox fx:id="bloodTypeComboBox" labelFloat="true" prefHeight="25.0" prefWidth="288.0" promptText="11. Grupa krwi" styleClass="text-field" visibleRowCount="8" />
+            <JFXButton fx:id="addDonorButton" alignment="CENTER" contentDisplay="TOP" onAction="#addDonorButtonClicked" styleClass="login-button" text="Dodaj dawcę">
+               <font>
+                  <Font size="18.0" />
+               </font>
+               <graphic>
+                  <FontAwesomeIconView glyphName="PLUS" size="25" />
+               </graphic>
+            </JFXButton>
+         </children>
+      </VBox>
+      <VBox alignment="CENTER" layoutX="44.0" layoutY="692.0" prefHeight="101.0" prefWidth="715.0">
+         <children>
+            <Label fx:id="warningLabel" alignment="CENTER" contentDisplay="CENTER" prefHeight="27.0" prefWidth="741.0" text="Proszę poprawnie uzupełnić wszystkie pola!" textAlignment="CENTER" textFill="#d30e0e" visible="false">
+               <font>
+                  <Font size="18.0" />
+               </font>
+            </Label>
+            <Label fx:id="acceptLabel" alignment="CENTER" contentDisplay="CENTER" prefHeight="27.0" prefWidth="727.0" text="Accepted user" textAlignment="CENTER" textFill="#007300" visible="false">
+               <font>
+                  <Font size="18.0" />
+               </font>
+            </Label>
+         </children>
+      </VBox>
+   </children>
+</AnchorPane>

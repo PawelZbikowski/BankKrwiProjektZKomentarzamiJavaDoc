@@ -1,0 +1,77 @@
+* {
+    -fx-primary : #FFFFFF;
+    -fx-secondary : #FB7373;
+    -fx-primarytext : #FF0000;
+    -fx-secondarytext: #2A2E37;
+    -fx-wrong: #CC0000;
+    -fx-right: #007300;
+}
+
+.root{
+    -fx-background-color: -fx-primary;
+}
+
+.glyph-icon{
+    -fx-fill: -fx-primarytext;
+}
+
+.button{
+    -fx-text-fill: -fx-primarytext;
+}
+
+.login-button{
+    -fx-border-color: -fx-secondary;
+    -fx-border-radius: 20px;
+    -fx-background-radius: 20px;
+}
+
+.login-button:hover{
+    -fx-border-color: -fx-secondary;
+    -fx-background-color: -fx-secondary;
+    -fx-text-fill: -fx-primary;
+}
+
+.text-field{
+    -fx-text-fill: -fx-secondarytext;
+    -fx-font-size: 18px;
+    -jfx-focus-color: -fx-secondarytext;
+
+}
+
+.wrong-credentials {
+    -jfx-unfocus-color: -fx-wrong;
+    -jfx-focus-color: -fx-wrong;
+}
+
+.right-label {
+    -fx-text-fill: -fx-right;
+}
+
+.wrong-label {
+    -fx-text-fill: -fx-wrong;
+}
+
+.table-view {
+    -fx-base: -fx-primary;
+    -fx-control-inner-background: -fx-primary;
+    -fx-background-color: -fx-primary;
+    -fx-table-cell-border-color: transparent;
+    -fx-table-header-border-color: transparent;
+    -fx-padding: 5;
+}
+
+.table-view .column-header-background {
+    -fx-background-color: transparent;
+}
+
+.table-view .column-header .label {
+    -fx-font-size: 10pt;
+    -fx-font-family: "System";
+    -fx-text-fill: black;
+    -fx-alignment: center;
+    -fx-opacity: 1;
+}
+
+.table-view:focused .table-row-cell:filled:focused:selected {
+    -fx-background-color: -fx-focus-color;
+}

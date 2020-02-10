@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.*?>
+<?import de.jensd.fx.glyphs.fontawesome.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.control.cell.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.shape.*?>
+<?import javafx.scene.text.*?>
+
+<AnchorPane prefHeight="800.0" prefWidth="1200.0" stylesheets="@centrum-login-theme.css" xmlns="http://javafx.com/javafx/10.0.2-internal" xmlns:fx="http://javafx.com/fxml/1" fx:controller="edu.ib.CentrumKrwiMainController">
+    <children>
+        <VBox alignment="TOP_CENTER" prefHeight="100.0" prefWidth="800.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="25.0">
+            <children>
+                <Label alignment="TOP_CENTER" contentDisplay="TOP" text="Bank Krwi" textAlignment="CENTER" textFill="RED">
+                    <font>
+                        <Font name="System Bold Italic" size="36.0" />
+                    </font>
+                </Label>
+                <Label text="Centrum krwiodawstwa">
+                    <font>
+                        <Font name="System Bold Italic" size="18.0" />
+                    </font>
+                </Label>
+            </children>
+        </VBox>
+        <FontAwesomeIconView fx:id="closeSign" glyphName="CLOSE" layoutX="776.0" layoutY="22.0" onMouseClicked="#closeSignClicked" size="25" AnchorPane.rightAnchor="5.0" AnchorPane.topAnchor="5.0" />
+        <TableView fx:id="centrumKrwiodawstwaTable" layoutX="20.0" layoutY="300.0" prefHeight="470.0" prefWidth="1162.0" AnchorPane.leftAnchor="20.0" AnchorPane.rightAnchor="18.0">
+            <columns>
+                <TableColumn fx:id="donation_dayCol" prefWidth="120.0" text="Data pobrania">
+                    <cellValueFactory>
+                        <PropertyValueFactory property="donationDay" />
+                    </cellValueFactory>
+                </TableColumn>
+                <TableColumn fx:id="PESELCol" prefWidth="100.0" text="PESEL">
+                    <cellValueFactory>
+                        <PropertyValueFactory property="pesel" />
+                    </cellValueFactory>
+                </TableColumn>
+                <TableColumn fx:id="nameCol" prefWidth="80.0" text="Imię">
+                    <cellValueFactory>
+                        <PropertyValueFactory property="name" />
+                    </cellValueFactory>
+                </TableColumn>
+                <TableColumn fx:id="surnameCol" prefWidth="100.0" text="Nazwisko">
+                    <cellValueFactory>
+                        <PropertyValueFactory property="surname" />
+                    </cellValueFactory>
+                </TableColumn>
+                <TableColumn fx:id="sexCol" prefWidth="40.0" text="Płeć">
+                    <cellValueFactory>
+                        <PropertyValueFactory property="sex" />
+                    </cellValueFactory>
+                </TableColumn>
+                <TableColumn fx:id="dateBrthCol" prefWidth="120.0" text="Data urodzenia">
+                    <cellValueFactory>
+                        <PropertyValueFactory property="dateOfBirth" />
+                    </cellValueFactory>
+                </TableColumn>
+                <TableColumn fx:id="placeBrthCol" prefWidth="140.0" text="Miejsce urodzenia">
+                    <cellValueFactory>
+                        <PropertyValueFactory property="placeOfBirth" />
+                    </cellValueFactory>
+                </TableColumn>
+                <TableColumn fx:id="adressCol" prefWidth="180.0" text="Adres">
+                    <cellValueFactory>
+                        <PropertyValueFactory property="adress" />
+                    </cellValueFactory>
+                </TableColumn>
+                <TableColumn fx:id="weightCol" prefWidth="60.0" text="Waga">
+                    <cellValueFactory>
+                        <PropertyValueFactory property="weight" />
+                    </cellValueFactory>
+                </TableColumn>
+                <TableColumn fx:id="lastDonationCol" prefWidth="132.0" text="Ostatnie oddanie">
+                    <cellValueFactory>
+                        <PropertyValueFactory property="lastDonation" />
+                    </cellValueFactory>
+                </TableColumn>
+                <TableColumn fx:id="bloodTypeCol" prefWidth="80.0" text="Grupa krwi">
+                    <cellValueFactory>
+                        <PropertyValueFactory property="bloodType" />
+                    </cellValueFactory>
+                </TableColumn>
+            </columns>
+        </TableView>
+        <JFXComboBox fx:id="findComboBox" editable="false" labelFloat="true" layoutX="640.0" layoutY="125.0" prefHeight="25.0" prefWidth="212.0" promptText="Wyszukiwanie po" styleClass="text-field" visibleRowCount="11" />
+        <JFXButton fx:id="showAllButton" contentDisplay="TOP" layoutX="75.0" layoutY="200.0" onAction="#showAllButtonClicked" styleClass="login-button" text="Pokaż wszystko" AnchorPane.bottomAnchor="529.0" AnchorPane.leftAnchor="75.0">
+            <font>
+                <Font size="18.0" />
+            </font>
+            <graphic>
+                <FontAwesomeIconView glyphName="LIST" size="25" />
+            </graphic>
+        </JFXButton>
+        <JFXButton fx:id="findButton" contentDisplay="TOP" layoutX="561.0" layoutY="200.0" onAction="#findButtonClicked" styleClass="login-button" text="Znajdź" AnchorPane.bottomAnchor="529.0">
+            <font>
+                <Font size="18.0" />
+            </font>
+            <graphic>
+                <FontAwesomeIconView glyphName="SEARCH" size="25" />
+            </graphic>
+        </JFXButton>
+        <JFXButton fx:id="addDonorButton" contentDisplay="TOP" layoutX="948.0" layoutY="200.0" onAction="#addDonorButtonClicked" styleClass="login-button" text="Dodaj krwiodawcę " AnchorPane.bottomAnchor="529.0" AnchorPane.rightAnchor="75.0">
+            <font>
+                <Font size="18.0" />
+            </font>
+            <graphic>
+                <FontAwesomeIconView glyphName="PLUS" size="25" />
+            </graphic>
+        </JFXButton>
+        <JFXTextField fx:id="findTextField" labelFloat="true" layoutX="349.0" layoutY="125.0" prefHeight="39.0" prefWidth="212.0" promptText="Wpisz poszukiwaną frazę" />
+        <Line endX="-68.0" endY="44.0" layoutX="368.0" layoutY="255.0" startX="-68.0" startY="-135.0" />
+        <Line endX="-68.0" endY="44.0" layoutX="937.0" layoutY="255.0" startX="-68.0" startY="-135.0" />
+    </children>
+</AnchorPane>

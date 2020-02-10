@@ -1,0 +1,44 @@
+* {
+    -fx-primary : #1d2026;
+    -fx-secondary : #FFFF8d;
+    -fx-primarytext : #B2B2B2;
+    -fx-secondarytext : #B2B2B2;
+    -fx-wrong: #cc0000;
+}
+
+.root{
+    -fx-background-color: -fx-primary;
+}
+
+.glyph-icon{
+    -fx-fill: -fx-primarytext;
+}
+
+.button{
+    -fx-text-fill: -fx-primarytext;
+}
+
+.login-button{
+    -fx-border-color: -fx-secondary;
+    -fx-border-radius: 20px;
+    -fx-background-radius: 20px;
+}
+
+.login-button:hover{
+    -fx-border-color: -fx-secondary;
+    -fx-background-color: -fx-secondary;
+    -fx-text-fill: -fx-primary;
+}
+
+.text-field{
+    -fx-text-fill: -fx-primarytext;
+    -fx-font-size: 18px;
+    -jfx-focus-color: -fx-secondary;
+    -jfx-unfocus-color: -fx-primarytext
+
+}
+
+.wrong-credentials {
+    -jfx-unfocus-color: -fx-wrong;
+    -jfx-focus-color: -fx-wrong;
+}
